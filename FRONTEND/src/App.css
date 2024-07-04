@@ -985,6 +985,9 @@ footer .container .banner .right {
   background: transparent;
   margin-top: 30px;
 }
+.reservation .container .banner .reservation_form_box form button.reservation-button {
+  cursor: pointer;
+}
 .reservation .container .banner .reservation_form_box form button span {
   margin-left: 1rem;
   padding: 3px;

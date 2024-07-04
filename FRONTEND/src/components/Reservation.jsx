@@ -16,6 +16,20 @@ const Reservation = () => {
 
   const handleReservation = async (e) => {
     e.preventDefault();
+    if (!firstName || !lastName || !email || !date || !time || !phone) {
+      toast.error("Please fill in all the fields.");
+      return;
+    }
+    if(phone.length !== 10){
+      toast.error("Please enter a valid phone number");
+      return;
+    }
+
+    if(!email.includes("@") || !email.includes(".com")){
+      toast.error("Please enter a valid email");
+      return;
+    }
+
     try {
       const { data } = await axios.post(
         "http://localhost:3000/send",
@@ -94,7 +108,7 @@ const Reservation = () => {
                   onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
-              <button type="submit" onClick={handleReservation}>
+              <button className="reservation-button" type="submit" onClick={handleReservation}>
                 RESERVE NOW{" "}
                 <span>
                   <HiOutlineArrowNarrowRight />
